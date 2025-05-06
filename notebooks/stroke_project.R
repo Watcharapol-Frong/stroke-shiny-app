@@ -13,12 +13,6 @@ con <- dbConnect(RMySQL::MySQL(),
                 password = "Qwe12345#",
                 dbname = "stroke_project")
 
-# Read CSV
-stroke_df <- read_csv("stroke_data.csv")
-
-# Upload to MySQL (RDS)
-dbWriteTable(con, name = "stroke_data", value = stroke_df, row.names = FALSE)
-
 # Check connect data
 dbGetQuery(con, "SELECT COUNT(*) FROM stroke_data")
 stroke_df <- dbGetQuery(con, "SELECT * FROM stroke_data")
