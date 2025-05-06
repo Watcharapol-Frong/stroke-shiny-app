@@ -19,3 +19,5 @@ dbWriteTable(con, name = "stroke_data", value = stroke_df, row.names = FALSE)
 # Check
 dbGetQuery(con, "SELECT COUNT(*) FROM stroke_data")
 
+# Disconnect
+dbDisconnect(con)
